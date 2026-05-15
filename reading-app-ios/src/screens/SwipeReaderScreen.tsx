@@ -15,6 +15,7 @@ import { pronounceText, pronounceLetters } from '../utils/swipeHelpers';
 import { Colors } from '../styles/colors';
 import { Typography } from '../styles/typography';
 import phonticsData from '../data/phonics.json';
+import { useProgress } from '../hooks/useProgress';
 
 // Extended phonics data with more words for Phase 1
 const EXTENDED_WORDS = [
@@ -44,6 +45,9 @@ export const SwipeReaderScreen: React.FC = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const scaleValue = useSharedValue(1);
 
+  // Progress tracking
+  const { recordLetterLearned, recordWordMastered, startNewSession, endCurrentSession, updatePhase } = useProgress();
+
   const wordsToRead: WordData[] = EXTENDED_WORDS;
   const currentWord = wordsToRead[currentWordIndex];
   const isPhaseComplete = currentWordIndex >= wordsToRead.length - 1;
@@ -61,6 +65,8 @@ export const SwipeReaderScreen: React.FC = () => {
       try {
         const letter = currentWord.letters[index];
         if (letter) {
+          // Record letter learned
+          recordLetterLearned(letter);
           // Pronounce the letter with elevated pitch for feedback
           await pronounceText(letter.toUpperCase(), 1.0);
         }
@@ -68,7 +74,7 @@ export const SwipeReaderScreen: React.FC = () => {
         console.error('Error on letter hit:', error);
       }
     },
-    [currentWord, isProcessing]
+    [currentWord, isProcessing, recordLetterLearned]
   );
 
   // Handle swipe completion
@@ -79,6 +85,9 @@ export const SwipeReaderScreen: React.FC = () => {
       setIsProcessing(true);
 
       try {
+        // Record word mastered
+        recordWordMastered(word);
+
         // Play happy animation on character
         setCharacter('happy');
 
@@ -109,6 +118,7 @@ export const SwipeReaderScreen: React.FC = () => {
         } else {
           // Phase complete - celebrate!
           setCharacter('celebrating');
+          updatePhase(1);
         }
       } catch (error) {
         console.error('Error on swipe complete:', error);
@@ -117,7 +127,7 @@ export const SwipeReaderScreen: React.FC = () => {
         setIsProcessing(false);
       }
     },
-    [currentWord, isProcessing, currentWordIndex, swipesCompleted, wordsToRead.length, scaleValue]
+    [currentWord, isProcessing, currentWordIndex, swipesCompleted, wordsToRead.length, scaleValue, recordWordMastered, updatePhase]
   );
 
   // Handle phase completion
@@ -127,14 +137,19 @@ export const SwipeReaderScreen: React.FC = () => {
     setCharacter('idle');
   }, []);
 
-  // Set initial thinking state on mount
+  // Set initial thinking state on mount and start session
   useEffect(() => {
     setCharacter('thinking');
+    startNewSession();
     const timer = setTimeout(() => {
       setCharacter('idle');
     }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+    return () => {
+      clearTimeout(timer);
+      // End session when component unmounts
+      endCurrentSession();
+    };
+  }, [startNewSession, endCurrentSession]);
 
   return (
     <SafeAreaView style={styles.safeArea}>
