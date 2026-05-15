@@ -1,4 +1,5 @@
-import { CURRICULUM as RAW_CURRICULUM } from './phonics.json';
+const phonicsData = require('./phonics.json');
+const RAW_CURRICULUM = phonicsData;
 
 // Type definitions
 export interface Letter {

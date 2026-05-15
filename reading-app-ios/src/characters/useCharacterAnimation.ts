@@ -67,8 +67,8 @@ export const useCharacterAnimation = (state: CharacterState) => {
         // Subtle breathing animation
         scaleValue.value = withRepeat(
           withSequence(
-            withTiming(1.02, { duration: 1200, easing: Easing.inOut(Easing.sine) }),
-            withTiming(1, { duration: 1200, easing: Easing.inOut(Easing.sine) })
+            withTiming(1.02, { duration: 1200, easing: Easing.inOut(Easing.sin) }),
+            withTiming(1, { duration: 1200, easing: Easing.inOut(Easing.sin) })
           ),
           -1
         );

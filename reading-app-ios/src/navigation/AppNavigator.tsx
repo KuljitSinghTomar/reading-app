@@ -22,43 +22,37 @@ const ActivityStackNavigator = () => {
     <ActivityStack.Navigator
       screenOptions={{
         headerShown: false,
-        animationEnabled: true,
       }}
     >
       <ActivityStack.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          animationEnabled: false,
-        }}
+          }}
       />
       <ActivityStack.Screen
         name="PhonicsLab"
         component={PhonicsLabScreen}
         options={{
-          animationEnabled: true,
-        }}
+          }}
       />
       <ActivityStack.Screen
         name="SwipeReader"
         component={SwipeReaderScreen}
         options={{
-          animationEnabled: true,
-        }}
+          }}
       />
       <ActivityStack.Screen
         name="WordBlender"
         component={WordBlenderScreen}
         options={{
-          animationEnabled: true,
-        }}
+          }}
       />
       <ActivityStack.Screen
         name="VoiceReadAlong"
         component={VoiceReadAlongScreen}
         options={{
-          animationEnabled: true,
-        }}
+          }}
       />
     </ActivityStack.Navigator>
   );

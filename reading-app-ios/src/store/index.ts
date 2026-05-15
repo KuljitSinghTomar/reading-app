@@ -1,6 +1,5 @@
 export { store, type RootState, type AppDispatch } from './store';
 export {
-  progressReducer as default,
   recordLetter,
   recordWord,
   startSession,
