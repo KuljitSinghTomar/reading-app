@@ -12,6 +12,11 @@ export const Typography = StyleSheet.create({
     fontWeight: '600',
     lineHeight: 36,
   },
+  heading3: {
+    fontSize: 20,
+    fontWeight: '600',
+    lineHeight: 28,
+  },
   body: {
     fontSize: 16,
     fontWeight: '400',
