@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Phonics Reading App",
+    "slug": "phonics-reading-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTabletMode": true,
+      "bundleIdentifier": "com.phonicsreadingapp.ios"
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone to record your reading."
+        }
+      ]
+    ]
+  }
+}

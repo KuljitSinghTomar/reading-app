@@ -1,0 +1,60 @@
+{
+  "phases": [
+    {
+      "id": 1,
+      "name": "Phase 1: Letter Recognition",
+      "weeks": "1-2",
+      "letters": [
+        {
+          "id": "S",
+          "name": "S",
+          "sound": "sss",
+          "color": "#FF6B6B",
+          "examples": ["sat", "sun", "sit"],
+          "audioUrl": ""
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "sound": "aaa",
+          "color": "#FFD93D",
+          "examples": ["ant", "apple", "at"],
+          "audioUrl": ""
+        },
+        {
+          "id": "T",
+          "name": "T",
+          "sound": "tuh",
+          "color": "#6BCB77",
+          "examples": ["tap", "top", "tip"],
+          "audioUrl": ""
+        },
+        {
+          "id": "P",
+          "name": "P",
+          "sound": "puh",
+          "color": "#4D96FF",
+          "examples": ["pat", "pig", "pit"],
+          "audioUrl": ""
+        },
+        {
+          "id": "M",
+          "name": "M",
+          "sound": "mmm",
+          "color": "#BB86FC",
+          "examples": ["mat", "mop", "mum"],
+          "audioUrl": ""
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "sat",
+      "word": "sat",
+      "phase": 2,
+      "letters": ["s", "a", "t"],
+      "type": "cvc"
+    }
+  ]
+}
