@@ -56,7 +56,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'S',
           name: 'S',
-          sound: 'sss',
+          sound: 'suh',
           color: '#FF6B6B',
           examples: ['sat', 'sun', 'sit'],
           audioUrl: '',
@@ -65,7 +65,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'A',
           name: 'A',
-          sound: 'aaa',
+          sound: 'ah',
           color: '#FFD93D',
           examples: ['ant', 'apple', 'at'],
           audioUrl: '',
@@ -92,7 +92,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'M',
           name: 'M',
-          sound: 'mmm',
+          sound: 'muh',
           color: '#BB86FC',
           examples: ['mat', 'mop', 'mum'],
           audioUrl: '',
@@ -110,7 +110,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'I',
           name: 'I',
-          sound: 'iii',
+          sound: 'ih',
           color: '#FF9D5C',
           examples: ['it', 'is', 'in'],
           audioUrl: '',
@@ -146,7 +146,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'O',
           name: 'O',
-          sound: 'ooo',
+          sound: 'aw',
           color: '#E74C3C',
           examples: ['on', 'op', 'otter'],
           audioUrl: '',
@@ -201,7 +201,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'E',
           name: 'E',
-          sound: 'eee',
+          sound: 'eh',
           color: '#E67E22',
           examples: ['end', 'egg', 'elk'],
           audioUrl: '',
@@ -210,7 +210,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'R',
           name: 'R',
-          sound: 'rrr',
+          sound: 'ruh',
           color: '#16A085',
           examples: ['run', 'rat', 'ring'],
           audioUrl: '',
@@ -246,7 +246,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'F',
           name: 'F',
-          sound: 'fff',
+          sound: 'fuh',
           color: '#2980B9',
           examples: ['fat', 'fit', 'fun'],
           audioUrl: '',
@@ -360,7 +360,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'SS',
           name: 'SS',
-          sound: 'sss',
+          sound: 'suh',
           color: '#4169E1',
           examples: ['boss', 'miss', 'hiss'],
           audioUrl: '',
@@ -369,7 +369,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'FF',
           name: 'FF',
-          sound: 'fff',
+          sound: 'fuh',
           color: '#32CD32',
           examples: ['buff', 'cliff', 'stuff'],
           audioUrl: '',
@@ -435,7 +435,7 @@ export const phonicsData: PhonicsData = {
         {
           id: 'Z',
           name: 'Z',
-          sound: 'zzz',
+          sound: 'zuh',
           color: '#DC143C',
           examples: ['zoo', 'zip', 'zero'],
           audioUrl: '',

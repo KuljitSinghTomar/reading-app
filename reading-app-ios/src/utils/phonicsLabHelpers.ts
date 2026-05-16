@@ -8,8 +8,8 @@ export const playLetterSound = async (sound: string): Promise<void> => {
     await Speech.stop();
     await Speech.speak(sound, {
       language: 'en-US',
-      pitch: 1.0,
-      rate: 0.8, // Slightly slow for clarity
+      pitch: 1.1,
+      rate: 0.6,
     });
   } catch (error) {
     console.error('Error playing sound:', error);
