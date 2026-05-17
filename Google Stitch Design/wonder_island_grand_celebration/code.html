@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wonder Island - Celebration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#f65555",
+          "background-light": "#f8f5f5",
+          "background-dark": "#221010",
+          "wonder-yellow": "#FFC837",
+          "wonder-yellow-light": "#FFE599",
+          "primary-shadow": "#d32f2f"
+        },
+        fontFamily: {
+          "display": ["Quicksand"]
+        },
+        borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px", "wonder": "32px"},
+        keyframes: {
+          float: {
+            '0%, 100%': { transform: 'translateY(0)' },
+            '50%': { transform: 'translateY(-20px)' },
+          },
+          pulseGlow: {
+            '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+            '50%': { opacity: '1', transform: 'scale(1.1)' },
+          },
+          confettiFall: {
+            '0%': { transform: 'translateY(-10vh) rotate(0deg)', opacity: '1' },
+            '100%': { transform: 'translateY(110vh) rotate(720deg)', opacity: '0' },
+          },
+          rainbowGlow: {
+            '0%, 100%': { filter: 'brightness(1) saturate(1)' },
+            '50%': { filter: 'brightness(1.2) saturate(1.5)' },
+          }
+        },
+        animation: {
+          'float': 'float 4s ease-in-out infinite',
+          'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+          'rainbow-glow': 'rainbowGlow 5s ease-in-out infinite',
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body {
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .btn-squish {
+    box-shadow: 0 12px 0 theme('colors.primary-shadow');
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .btn-squish:active {
+    box-shadow: 0 0 0 theme('colors.primary-shadow');
+    transform: translateY(12px);
+  }
+
+  .confetti {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    z-index: 40;
+    animation: confettiFall 4s linear infinite;
+  }
+
+  /* Ray Burst for the treasure */
+  .ray-burst {
+    background: radial-gradient(circle, rgba(255,231,105,1) 0%, rgba(255,231,105,0) 70%);
+  }
+</style>
+</head>
+<body class="bg-background-dark m-0 p-0 overflow-hidden select-none touch-manipulation min-h-screen flex items-center justify-center">
+<!-- Full-Bleed Background Container -->
+<main class="relative w-screen h-screen overflow-hidden flex items-center justify-center">
+<!-- Island Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Tropical Island Background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHQSUBngSMpI49Ice6ULbOKyHDgFqrfenmCEVlgMbPn2l47Z-x9YbIkDgpAOJuKl5SY3_0zE8Pg0kgIxe5nO_jap11fvGrhccouiHGbHnRrtdhdQbUB_d_111fkC4iFSSUdFClo7VMRmo6SdWJqQRpGzlp9paFqQCg3j8spPXQks9j3URoe16iaJj2nxRpUW3BeqEbW80WeVsxwItdTzDGCWqUc9LYFFmv4ln1viATkckeK5288JJJWe5umEtziSN410zatZMDR5Cv"/>
+<!-- Overlay to ensure UI readability if needed, though light background helps -->
+<div class="absolute inset-0 bg-white/10"></div>
+</div>
+<!-- Rainbow Arc Visual Effect (Enhancing the one in background) -->
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none z-10 opacity-40 animate-rainbow-glow">
+<div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[120%] h-[100%] rounded-[100%] border-[60px] border-transparent border-t-white/30 blur-xl"></div>
+</div>
+<!-- Confetti Layer -->
+<div class="absolute inset-0 pointer-events-none z-40 overflow-hidden" id="confetti-container">
+<!-- Generated Confetti Pieces -->
+<div class="confetti bg-yellow-400" style="left: 10%; animation-delay: 0s;"></div>
+<div class="confetti bg-pink-400" style="left: 25%; animation-delay: 1.5s;"></div>
+<div class="confetti bg-blue-400 rounded-full" style="left: 40%; animation-delay: 0.8s;"></div>
+<div class="confetti bg-green-400" style="left: 55%; animation-delay: 2.2s;"></div>
+<div class="confetti bg-purple-400 rotate-45" style="left: 70%; animation-delay: 0.4s;"></div>
+<div class="confetti bg-red-400" style="left: 85%; animation-delay: 1.1s;"></div>
+<div class="confetti bg-yellow-300 rounded-full" style="left: 95%; animation-delay: 1.9s;"></div>
+<div class="confetti bg-orange-400" style="left: 15%; animation-delay: 2.5s;"></div>
+</div>
+<!-- Celebration Scene -->
+<div class="relative z-30 flex flex-col items-center justify-center scale-110 lg:scale-125">
+<!-- Massive Animal Group -->
+<div class="relative w-[500px] lg:w-[700px] drop-shadow-2xl animate-float">
+<img alt="Celebrating animals" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADMO0jDi6mNqiSsU5y4DZOqw-dYy5xmjQOgIrcSRoI3HMQvi5c7GpsUw_EHJiwVy7bRcge0B00kjjO_-gCRCF7cuZgVEg5JhOUdQtTaoGSyBmomN2zjsImoD6X80w-h4F3cJNtv28bUL5lMUWw6-kNKeFZdifk5jkc5ZFsBTiB15NbCjzn4Ryn3bWGQJn7suFN2ssmRYEDZG67CDOo-KPtXdkyuPU951LHHHrPQC7LEB9vdBQJHr5_GUOiI77bVQNDYFJ-u3B4iGP7"/>
+<!-- Unlocked Treasure Pedestal (Positioned relative to the animals) -->
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<!-- Ray Burst Effect -->
+<div class="absolute w-64 h-64 ray-burst animate-pulse-glow rounded-full blur-2xl"></div>
+<!-- The Treasure (Golden Crown) -->
+<div class="relative w-40 h-40 lg:w-48 lg:h-48 flex items-center justify-center">
+<div class="w-full h-full overflow-hidden flex items-center justify-center">
+<!-- Cropping the first item from the set (the crown) -->
+<div class="scale-[2.2] translate-x-[25%] translate-y-[25%]">
+<img alt="Unlocked Golden Crown" class="w-48 h-48 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGmGL3d1BPFc2jR9Pw1Qhu_zTLUaWj5MHXZq6-kLkYmga2oofdpJDc-I1EL-CpDzEaSflxo6-eN98FK1Sp_4cJbQ2qc9Yke_r1t36WSY5a8YOfBFqxQXaosjbJCYrZXvuvOrZm-F6SVuNuhJCatE4NzCAIB7uBDmmok4h2aVhM222azys5RfkO6i8eTDHX4AXfOYU5ddPxaadueDSSP69K3xVhw1IdZT-q1NsaeO8aw_gQ0rSorM9qKH4zIw-dqz_OF51gzbxhBbHJ"/>
+</div>
+</div>
+<!-- Sparkles -->
+<span class="material-symbols-outlined absolute top-0 right-0 text-wonder-yellow text-4xl animate-pulse">sparkles</span>
+<span class="material-symbols-outlined absolute bottom-4 left-0 text-white text-3xl animate-pulse delay-700">stars</span>
+</div>
+<div class="bg-white/90 backdrop-blur px-6 py-2 rounded-full border-4 border-wonder-yellow shadow-lg -mt-4 z-10">
+<span class="text-2xl font-bold text-orange-600 uppercase tracking-tighter">New Treasure!</span>
+</div>
+</div>
+</div>
+</div>
+<!-- UI Overlay Layer -->
+<div class="absolute inset-0 z-50 pointer-events-none flex flex-col justify-between p-8 lg:p-12">
+<!-- Top: Treasure Progress Bar -->
+<div class="w-full flex justify-center pointer-events-auto">
+<div class="bg-white/80 backdrop-blur-md p-4 rounded-3xl border-4 border-white shadow-xl flex flex-col items-center min-w-[300px]">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-wonder-yellow fill-1">military_tech</span>
+<h2 class="text-xl font-bold text-slate-700 uppercase tracking-wide">Treasure Progress</h2>
+<span class="bg-orange-500 text-white px-3 py-0.5 rounded-full text-lg font-bold">4/6</span>
+</div>
+<div class="w-full h-6 bg-slate-200 rounded-full overflow-hidden border-2 border-slate-300">
+<div class="h-full bg-gradient-to-r from-wonder-yellow to-orange-400 w-[66%] rounded-full shadow-inner relative">
+<div class="absolute top-0 right-0 h-full w-4 bg-white/30"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom: Larger Celebration Button -->
+<div class="w-full flex justify-center pointer-events-auto pb-4">
+<button class="bg-primary text-white font-display font-bold text-4xl lg:text-5xl py-6 px-20 lg:py-8 lg:px-28 rounded-[40px] btn-squish uppercase tracking-widest border-[6px] border-white flex items-center gap-6 shadow-2xl">
+<span>YAY!</span>
+<span class="material-symbols-outlined text-5xl lg:text-6xl" data-icon="arrow_forward" data-weight="fill" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Decorative Sparkles Background Layer -->
+<div class="absolute inset-0 z-20 pointer-events-none opacity-60">
+<span class="material-symbols-outlined absolute top-[20%] left-[15%] text-white text-5xl animate-pulse">sparkles</span>
+<span class="material-symbols-outlined absolute top-[40%] right-[10%] text-wonder-yellow text-6xl animate-bounce">star</span>
+<span class="material-symbols-outlined absolute bottom-[30%] left-[5%] text-white text-4xl animate-pulse">auto_awesome</span>
+<span class="material-symbols-outlined absolute top-[15%] right-[25%] text-wonder-yellow-light text-5xl animate-spin-slow">sunny</span>
+</div>
+</main>
+<script>
+  // Simple confetti generator for more variety
+  const container = document.getElementById('confetti-container');
+  const colors = ['#f65555', '#FFC837', '#60a5fa', '#4ade80', '#c084fc'];
+  
+  for (let i = 0; i < 40; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = Math.random() * 100 + '%';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.animationDelay = Math.random() * 4 + 's';
+    confetti.style.animationDuration = (2 + Math.random() * 3) + 's';
+    confetti.style.width = (8 + Math.random() * 10) + 'px';
+    confetti.style.height = confetti.style.width;
+    if (Math.random() > 0.5) confetti.style.borderRadius = '50%';
+    container.appendChild(confetti);
+  }
+</script>
+</body></html>

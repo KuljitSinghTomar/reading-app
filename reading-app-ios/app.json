@@ -1,13 +1,16 @@
 {
   "expo": {
-    "name": "Phonics Reading App",
+    "name": "Wonder Island",
     "slug": "phonics-reading-app",
     "version": "1.0.0",
+    "orientation": "landscape",
+    "backgroundColor": "#E0F4FF",
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTabletMode": true,
+      "requireFullScreen": true,
       "bundleIdentifier": "com.phonicsreadingapp.ios"
     },
     "plugins": [

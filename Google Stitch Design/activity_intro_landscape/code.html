@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f65555",
+            "background-light": "#fff9f2",
+            "background-dark": "#2d1b14",
+            "accent-teal": "#4cc9f0"
+          },
+          fontFamily: {
+            "sans": ["Quicksand", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "1.5rem",
+            "xl": "2rem",
+            "full": "9999px",
+            "tactile": "2.5rem"
+          },
+          boxShadow: {
+            'tactile': '0 8px 0 rgba(0,0,0,0.1), 0 15px 30px rgba(0,0,0,0.1)',
+            'button-press': '0 4px 0 rgba(0,0,0,0.1)',
+            'cloud': '0 20px 40px -10px rgba(0,0,0,0.1)'
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: "Quicksand", sans-serif;
+      background-color: #fff9f2;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .cloud-shape {
+      border-radius: 60% 40% 70% 30% / 40% 50% 50% 60%;
+      position: relative;
+      animation: squish 8s ease-in-out infinite alternate;
+    }
+    @keyframes squish {
+      0% { border-radius: 60% 40% 70% 30% / 40% 50% 50% 60%; }
+      50% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+      100% { border-radius: 40% 60% 30% 70% / 60% 50% 50% 40%; }
+    }
+    .cloud-blob-1 {
+      position: absolute;
+      top: -15%;
+      left: 15%;
+      width: 50%;
+      height: 60%;
+      background: inherit;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .cloud-blob-2 {
+      position: absolute;
+      top: -20%;
+      right: 15%;
+      width: 45%;
+      height: 70%;
+      background: inherit;
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .text-shadow-soft {
+      text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body class="overflow-hidden h-screen w-screen selection:bg-primary/20">
+<!-- Background Layer -->
+<div class="fixed inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center blur-sm brightness-90 scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida/ADBb0ug-acp-UZN2R9j3AItIcXPvITBtvfMI01FO_BPQ1X8xYOD8wqIEZLA4HN11ZQI7hNS9ApuPhTtXB2eFLPmY1I653NZr9tzWP32YPJs3g7wW-Oq2N5VGGw-FkbO0VB73WVUmLGTSRURhX0v9F--mhTlSsettPaZV9YcULw6dg58g6Oc02GsfG9UrE_AsLV7q_jhBKdTABtbcPmAVgzd1ALLo3ek3M3dcHauiNY9ZUSJsMIjV2Vh9myecOvK0');"></div>
+<div class="absolute inset-0 bg-white/10 backdrop-blur-[2px]"></div>
+</div>
+<!-- Interface Layer -->
+<div class="relative z-10 flex flex-col h-full">
+<!-- Header -->
+<header class="flex items-center justify-between px-10 py-8">
+<button class="flex items-center justify-center size-14 bg-white rounded-2xl shadow-tactile text-background-dark active:translate-y-1 active:shadow-button-press transition-all">
+<span class="material-symbols-outlined !text-3xl font-bold">arrow_back</span>
+</button>
+<div class="flex items-center gap-4 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full shadow-tactile border border-white/50">
+<div class="bg-primary text-white size-10 rounded-xl flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined !text-2xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<span class="text-xl font-extrabold text-background-dark tracking-tight">Level 12: Island Search</span>
+</div>
+<div class="size-14"></div> <!-- Symmetry Spacer -->
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex items-center justify-center p-6 -mt-8">
+<div class="relative w-full max-w-[800px]">
+<!-- Squishy Cloud Modal -->
+<div class="cloud-shape bg-white shadow-cloud p-12 flex flex-col items-center justify-center min-h-[440px] relative">
+<div class="cloud-blob-1 shadow-cloud"></div>
+<div class="cloud-blob-2 shadow-cloud"></div>
+<div class="relative z-10 flex flex-col items-center gap-8 text-center">
+<div class="space-y-1">
+<p class="text-primary font-black text-2xl uppercase tracking-[0.2em] text-shadow-soft">Find the Letter</p>
+<div class="h-1.5 w-16 bg-primary/20 rounded-full mx-auto"></div>
+</div>
+<div class="group relative">
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-2xl scale-125"></div>
+<div class="relative flex items-center justify-center size-44 bg-background-light rounded-tactile border-[10px] border-primary/5 shadow-inner transition-transform group-hover:scale-105 duration-500">
+<span class="text-[110px] font-black text-background-dark leading-none select-none">M</span>
+</div>
+</div>
+<p class="text-slate-600 text-xl font-semibold max-w-sm leading-relaxed">
+            Can you spot all the hidden letters on the island? Let's go exploring!
+          </p>
+</div>
+</div>
+<!-- Tactile Play Button -->
+<div class="absolute -bottom-10 left-1/2 -translate-x-1/2 z-20">
+<button class="group relative flex items-center justify-center gap-6 bg-primary hover:bg-[#f86d6d] text-white rounded-tactile px-16 py-8 shadow-[0_12px_0_#d14444,0_20px_40px_rgba(246,85,85,0.4)] active:translate-y-2 active:shadow-[0_4px_0_#d14444,0_10px_20px_rgba(246,85,85,0.3)] transition-all">
+<span class="text-5xl font-black tracking-tight uppercase">GO!</span>
+<div class="flex items-center justify-center size-12 bg-white/20 rounded-2xl group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined !text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</button>
+</div>
+<!-- Decorative Floaters -->
+<div class="absolute -top-16 -left-12 size-32 bg-orange-200/40 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 -right-16 size-40 bg-accent-teal/10 rounded-full blur-3xl"></div>
+</div>
+</main>
+<!-- Navigation / HUD Footer -->
+<footer class="flex items-end justify-between px-10 pb-10">
+<!-- Area Badge -->
+<div class="flex items-center gap-3 bg-white/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-tactile border border-white/50">
+<div class="size-12 rounded-xl overflow-hidden shadow-inner ring-2 ring-background-light">
+<img alt="Coconut Bay Area" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWfKdrc-LFrFOb0z_zq1bvI42oBR9l3LquPq2go1PvkqV2cyOWWvx_Sho_BOw95tILeneozIGb3JSXLjqUhUsLwF8bxyD0RMV5CFJfR7ph0mQWtwoH67Kit1koV3p2_2xg4HHvSf38J07AKlE0uBesvIEz9Fw3dMtJxdZUs6HnItqC2Pmp0kpOOmrQFxoeY4Z9njWk4pJjwrL0NNzyzn1q_rPBY5Ad9-KT_mdnm6w0uqBQLnBedYVwYyJKUPH9k47FsNFTIoxwccdA"/>
+</div>
+<div class="flex flex-col">
+<span class="text-[11px] uppercase font-black text-slate-400 tracking-wider">Current Area</span>
+<span class="text-lg font-extrabold text-background-dark leading-tight">Coconut Bay</span>
+</div>
+</div>
+<!-- Utility Controls -->
+<div class="flex items-center gap-3 p-2 bg-white/90 backdrop-blur-md rounded-3xl shadow-tactile border border-white/50">
+<button class="size-12 flex items-center justify-center rounded-2xl text-slate-500 hover:text-primary hover:bg-primary/5 transition-colors active:scale-90">
+<span class="material-symbols-outlined !text-3xl">volume_up</span>
+</button>
+<div class="w-1 h-6 bg-slate-200 rounded-full"></div>
+<button class="size-12 flex items-center justify-center rounded-2xl text-slate-500 hover:text-primary hover:bg-primary/5 transition-colors active:scale-90">
+<span class="material-symbols-outlined !text-3xl">help</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

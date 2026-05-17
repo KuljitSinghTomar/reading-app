@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wonder Island - Map Explorer</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF4B4B",
+                        "primary-shadow": "#D32F2F",
+                        "background-light": "#E0F4FF",
+                        "background-dark": "#221010",
+                        "surface": "#FFFFFF",
+                        "text": "#2D3748",
+                        "muted": "#A0AEC0",
+                        "accent-yellow": "#FFC837",
+                        "accent-yellow-shadow": "#D69E2E",
+                        "accent-green": "#48BB78",
+                    },
+                    fontFamily: {
+                        "display": ["Fredoka One", "cursive"],
+                        "body": ["Quicksand", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1.5rem", 
+                        "lg": "2rem", 
+                        "xl": "2.5rem", 
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'squish-primary': '0 10px 0 #D32F2F',
+                        'squish-yellow': '0 10px 0 #D69E2E',
+                        'squish-muted': '0 10px 0 #718096',
+                        'squish-surface': '0 10px 0 #CBD5E0',
+                    },
+                    keyframes: {
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(-10px)' },
+                            '50%': { transform: 'translateY(0)' },
+                        },
+                        cloudWipe: {
+                            '0%': { transform: 'scale(1)', opacity: '1' },
+                            '100%': { transform: 'scale(3)', opacity: '0', pointerEvents: 'none' },
+                        },
+                        drift: {
+                            '0%': { transform: 'translateX(0px)' },
+                            '50%': { transform: 'translateX(30px)' },
+                            '100%': { transform: 'translateX(0px)' },
+                        }
+                    },
+                    animation: {
+                        'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+                        'cloud-wipe': 'cloudWipe 1.2s cubic-bezier(0.68, -0.55, 0.26, 1.55) forwards',
+                        'drift': 'drift 10s ease-in-out infinite',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .btn-squish:active {
+            transform: translateY(10px) scale(0.95) !important;
+            box-shadow: 0 0 0 transparent !important;
+            transition: all 0.1s ease-in-out;
+        }
+        .btn-squish {
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease-in-out;
+        }
+
+        .path-line {
+            stroke-dasharray: 20 20;
+            stroke-linecap: round;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #E0F4FF;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* iPad Pro 12.9 Landscape Optimized Container */
+        .viewport-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1366px; 
+            max-height: 1024px;
+            aspect-ratio: 4/3;
+            position: relative;
+            overflow: hidden;
+            background-color: #f0f9ff;
+            box-shadow: 0 0 100px rgba(0,0,0,0.15);
+        }
+
+        @media (max-aspect-ratio: 1/1) {
+            .viewport-container {
+                aspect-ratio: auto;
+                height: 100vh;
+                width: 100vw;
+            }
+        }
+    </style>
+</head>
+<body class="font-body text-text select-none">
+<div class="viewport-container relative">
+<!-- Cloud Transition Overlay -->
+<div class="absolute inset-0 z-50 bg-white flex items-center justify-center animate-cloud-wipe pointer-events-none"></div>
+<!-- High-Fidelity Island Map Background -->
+<div class="absolute inset-0 w-full h-full object-cover z-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida/ADBb0ug-acp-UZN2R9j3AItIcXPvITBtvfMI01FO_BPQ1X8xYOD8wqIEZLA4HN11ZQI7hNS9ApuPhTtXB2eFLPmY1I653NZr9tzWP32YPJs3g7wW-Oq2N5VGGw-FkbO0VB73WVUmLGTSRURhX0v9F--mhTlSsettPaZV9YcULw6dg58g6Oc02GsfG9UrE_AsLV7q_jhBKdTABtbcPmAVgzd1ALLo3ek3M3dcHauiNY9ZUSJsMIjV2Vh9myecOvK0');">
+<!-- Animated Decorative Elements -->
+<div class="absolute top-[55%] left-[23%] animate-drift opacity-70 pointer-events-none">
+<span class="material-symbols-outlined text-5xl text-white drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">sailing</span>
+</div>
+<div class="absolute bottom-[15%] right-[22%] animate-drift opacity-90 pointer-events-none" style="animation-delay: -3s; animation-duration: 15s;">
+<span class="material-symbols-outlined text-4xl text-white drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">sailing</span>
+</div>
+</div>
+<!-- Winding Adventure Path (SVG Overlay) -->
+<svg class="absolute inset-0 w-full h-full z-10 pointer-events-none" preserveaspectratio="xMidYMid slice" viewbox="0 0 1024 768">
+<path class="path-line opacity-40" d="M120,620 C250,650 450,650 512,500 C580,350 720,400 800,380 C880,360 930,420 950,400" fill="none" stroke="#2D3748" stroke-width="16"></path>
+</svg>
+<!-- Path Nodes (Interactive Levels) -->
+<div class="absolute inset-0 w-full h-full z-20">
+<!-- Node 1: Completed -->
+<button aria-label="Level 1 Completed" class="absolute bottom-[20%] left-[12%] transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-accent-yellow shadow-squish-yellow btn-squish flex items-center justify-center border-[6px] border-white group">
+<span class="material-symbols-outlined text-white text-5xl drop-shadow-md group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<!-- Node 2: Completed -->
+<button aria-label="Level 2 Completed" class="absolute bottom-[23%] left-[32%] transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-accent-yellow shadow-squish-yellow btn-squish flex items-center justify-center border-[6px] border-white group">
+<span class="material-symbols-outlined text-white text-5xl drop-shadow-md group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<!-- Node 3: Current Activity (Bouncing Hero) -->
+<button aria-label="Current Level" class="absolute bottom-[35%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-primary shadow-squish-primary btn-squish flex items-center justify-center border-[8px] border-white animate-bounce-gentle z-30 group">
+<span class="material-symbols-outlined text-white text-7xl drop-shadow-lg group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Node 4: Locked -->
+<button aria-label="Level 4 Locked" class="absolute top-[50%] left-[72%] transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-muted shadow-squish-muted btn-squish flex items-center justify-center border-[6px] border-white opacity-90 cursor-not-allowed group" disabled="">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">lock</span>
+</button>
+<!-- Node 5: Locked -->
+<button aria-label="Level 5 Locked" class="absolute top-[48%] left-[90%] transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-muted shadow-squish-muted btn-squish flex items-center justify-center border-[6px] border-white opacity-90 cursor-not-allowed group" disabled="">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">lock</span>
+</button>
+</div>
+<!-- HUD: User Interface Overlays -->
+<!-- Top Left: Settings -->
+<div class="absolute top-10 left-10 z-40">
+<button aria-label="Settings" class="w-16 h-16 rounded-full bg-white shadow-squish-surface btn-squish flex items-center justify-center text-slate-600 border-4 border-slate-200">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">settings</span>
+</button>
+</div>
+<!-- Top Right: Sticker Book (Star) -->
+<div class="absolute top-10 right-10 z-40">
+<div class="relative">
+<button aria-label="Sticker Book" class="w-24 h-24 rounded-full bg-white shadow-squish-surface btn-squish flex items-center justify-center text-accent-yellow border-[6px] border-slate-700 group">
+<span class="material-symbols-outlined text-6xl drop-shadow-sm group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</button>
+<!-- Notification Badge -->
+<div class="absolute -top-1 -right-1 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-display text-xl border-[3px] border-white shadow-lg">
+                    2
+                </div>
+</div>
+</div>
+<!-- Bottom Right: Story Library (Book) -->
+<div class="absolute bottom-10 right-10 z-40">
+<button aria-label="Story Library" class="w-24 h-24 rounded-[30%] bg-white shadow-squish-surface btn-squish flex items-center justify-center text-slate-800 border-[6px] border-white group overflow-hidden">
+<span class="material-symbols-outlined text-7xl group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</button>
+</div>
+</div>
+</body></html>

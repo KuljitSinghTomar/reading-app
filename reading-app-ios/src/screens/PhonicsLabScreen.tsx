@@ -59,8 +59,7 @@ export const PhonicsLabScreen: React.FC<PhonicsLabScreenProps> = ({ navigation }
       setSelectedLetter(letterId);
 
       try {
-        // Play sound
-        await playLetterSound(letter.sound);
+        await playLetterSound(letter.id, letter.sound);
 
         // Update progress
         setLettersLearned((prev) => {

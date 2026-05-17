@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Hear &amp; Say - Wonder Island Tactile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-25..0" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "primary-soft": "#fff3ed",
+                        "secondary": "#2d8cf0",
+                        "success": "#4ade80",
+                        "background-light": "#f8f6f6",
+                        "island-sand": "#fff9f2",
+                        "ink": "#221610",
+                    },
+                    fontFamily: {
+                        "sans": ["Public Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "tactile": "0 4px 0 0 rgba(34, 22, 16, 0.1)",
+                        "tactile-primary": "0 6px 0 0 #c44a0f",
+                        "tactile-hover": "0 2px 0 0 #c44a0f",
+                        "card": "0 8px 24px -4px rgba(34, 22, 16, 0.08)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 48;
+        }
+        body {
+            background-color: #f8f6f6;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Tactile button press effect */
+        .btn-tactile:active {
+            transform: translateY(4px);
+            box-shadow: none !important;
+        }
+        /* High contrast focus ring for accessibility */
+        .focus-ring:focus-visible {
+            outline: 4px solid #2d8cf0;
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body class="font-sans text-ink h-screen overflow-hidden select-none">
+<!-- iPad Landscape Optimized Shell -->
+<div class="flex flex-col h-full bg-background-light">
+<!-- Tactile Header -->
+<header class="flex items-center justify-between px-10 py-5 bg-white border-b-4 border-gray-100 relative z-10">
+<div class="flex items-center gap-6">
+<button class="size-14 bg-white border-2 border-gray-200 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition-colors shadow-tactile btn-tactile">
+<span class="material-symbols-outlined text-3xl text-ink">arrow_back</span>
+</button>
+<div>
+<h1 class="text-2xl font-black tracking-tight text-ink uppercase">Wonder Island</h1>
+<p class="text-sm font-bold text-gray-400 uppercase tracking-widest">Lesson 4 • Sky Explorer</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-black text-primary">60% COMPLETE</span>
+</div>
+<div class="w-64 h-4 bg-gray-100 rounded-full border-2 border-gray-200 p-0.5 overflow-hidden">
+<div class="w-2/3 h-full bg-primary rounded-full shadow-inner"></div>
+</div>
+</div>
+<div class="size-14 bg-island-sand border-2 border-primary/20 rounded-2xl flex items-center justify-center shadow-tactile">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<!-- Left Side: Visual Prompt (Tactile Container) -->
+<section class="w-[45%] p-10 flex flex-col">
+<div class="flex-1 bg-white rounded-3xl border-4 border-white shadow-card overflow-hidden relative group">
+<!-- High Fidelity Illustration Area -->
+<div class="absolute inset-0 bg-sky-50 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_V2ITIuvR7CoXDlsni98MBktUwyNNePCEVMvH5BNebud2FNy43FUbmuHj5eqKvu4fBoQjcfptp8f4C857Yzw9rj-kaYVqVNG2uKx_jXFE12WxZ-k2dLuAlqO7PSzDqEAVXg0JEY11Eyozqr5MpzhPhpVUiWnvd_yMDEXAPAjPKcGbl820fAiMEjBtqXxAECN_c7vEVbHFOyENVqQTe6bqimlJXuGrYc1daYs0d8-QxsHf8Gs1udGuv8QquK6jG-Fc-v7zEwnl8arq");' title="Parrot flying over ocean">
+</div>
+<!-- Audio Visualizer Overlay (Static representation) -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-4/5">
+<div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-2xl flex items-center gap-4 border-2 border-white">
+<button class="size-16 bg-primary text-white rounded-2xl flex items-center justify-center shadow-tactile-primary btn-tactile">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex-1 flex items-end gap-1 h-10 pb-1">
+<div class="w-1 bg-primary/20 rounded-full h-1/3"></div>
+<div class="w-1 bg-primary/20 rounded-full h-1/2"></div>
+<div class="w-1 bg-primary/20 rounded-full h-3/4"></div>
+<div class="w-1 bg-primary/20 rounded-full h-2/3"></div>
+<div class="w-1 bg-primary/20 rounded-full h-full"></div>
+<div class="w-1 bg-primary/20 rounded-full h-1/2"></div>
+<div class="w-1 bg-primary/20 rounded-full h-2/3"></div>
+<div class="w-1 bg-primary/20 rounded-full h-1/4"></div>
+<div class="w-1 bg-gray-100 rounded-full h-1/2"></div>
+<div class="w-1 bg-gray-100 rounded-full h-1/3"></div>
+<div class="w-1 bg-gray-100 rounded-full h-1/2"></div>
+</div>
+<span class="text-lg font-black text-ink/40 tabular-nums">0:04</span>
+</div>
+</div>
+</div>
+<div class="mt-8 flex items-center gap-4 bg-primary-soft p-4 rounded-2xl border-2 border-primary/10">
+<div class="size-12 bg-primary rounded-xl flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<p class="text-xl font-extrabold text-ink leading-tight">Listen to the parrot, then repeat clearly!</p>
+</div>
+</section>
+<!-- Right Side: Interaction & Recognition -->
+<section class="w-[55%] p-10 bg-island-sand border-l-4 border-gray-100 flex flex-col justify-between">
+<!-- Main Text Display -->
+<div class="flex-1 flex flex-col items-center justify-center">
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-4 max-w-2xl">
+<button class="px-3 py-1 text-7xl font-black text-ink hover:text-primary transition-colors">The</button>
+<button class="px-3 py-1 text-7xl font-black text-ink hover:text-primary transition-colors">parrot</button>
+<div class="relative group">
+<button class="px-3 py-1 text-7xl font-black text-primary transition-colors">flies</button>
+<div class="absolute -bottom-4 left-0 right-0 h-3 bg-primary rounded-full"></div>
+</div>
+<button class="px-3 py-1 text-7xl font-black text-ink hover:text-primary transition-colors">over</button>
+<button class="px-3 py-1 text-7xl font-black text-ink hover:text-primary transition-colors">the</button>
+<button class="px-3 py-1 text-7xl font-black text-ink hover:text-primary transition-colors">blue</button>
+<button class="px-3 py-1 text-7xl font-black text-ink hover:text-primary transition-colors">ocean.</button>
+</div>
+<p class="mt-12 text-lg font-bold text-ink/30 uppercase tracking-[0.2em]">Tap words to hear them again</p>
+</div>
+<!-- Action Hub -->
+<div class="flex flex-col items-center gap-10">
+<div class="relative">
+<!-- Recognition Pulse Animation -->
+<div class="absolute inset-0 bg-primary/20 rounded-full scale-150 blur-2xl animate-pulse"></div>
+<button aria-label="Hold to record" class="relative size-40 bg-primary text-white rounded-full flex flex-col items-center justify-center shadow-tactile-primary btn-tactile focus-ring">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span class="text-sm font-black uppercase tracking-[0.2em] -mt-1">Hold</span>
+</button>
+</div>
+<!-- Secondary Controls -->
+<div class="flex items-center gap-16">
+<button class="flex flex-col items-center gap-3 group">
+<div class="size-16 bg-white border-2 border-gray-200 rounded-2xl flex items-center justify-center shadow-tactile group-hover:border-primary/40 transition-all btn-tactile">
+<span class="material-symbols-outlined text-3xl text-ink/60 group-hover:text-primary">slow_motion_video</span>
+</div>
+<span class="text-sm font-black text-ink/40 uppercase tracking-widest">Slower</span>
+</button>
+<button class="flex flex-col items-center gap-3 group">
+<div class="size-16 bg-white border-2 border-gray-200 rounded-2xl flex items-center justify-center shadow-tactile group-hover:border-secondary transition-all btn-tactile">
+<span class="material-symbols-outlined text-3xl text-ink/60 group-hover:text-secondary">help</span>
+</div>
+<span class="text-sm font-black text-ink/40 uppercase tracking-widest">Help</span>
+</button>
+</div>
+</div>
+<!-- Teacher Feedback/Hint -->
+<div class="mt-10 bg-white p-6 rounded-[2rem] border-4 border-amber-100 shadow-card flex items-start gap-5">
+<div class="size-14 bg-amber-400 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-tactile">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div>
+<p class="text-xs font-black text-amber-500 uppercase tracking-widest mb-1">PRO TIP</p>
+<p class="text-lg font-bold text-ink leading-tight">Focus on the "FL" sound! Imagine you are blowing out a tiny candle: Fffff-lies.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>
